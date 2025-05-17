@@ -33,3 +33,7 @@
 ## Deployment
 1. Build Docker image: `docker build -t orgchart-api .`
 2. Deploy stack: `docker stack deploy -c docker-compose.yml orgchart`
+
+
+# you can import postman collections for API test
+- question_pro_app.postman_collection.json import your postman

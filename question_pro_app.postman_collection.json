@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "60223cc3-43ea-49a8-8c6a-26bccfd4d4a6",
+		"name": "question_pro_app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10162430",
+		"_collection_link": "https://newmohib.postman.co/workspace/Spotinerd~865b89c8-2f88-4fff-b7b4-f1998680a2f2/collection/10162430-60223cc3-43ea-49a8-8c6a-26bccfd4d4a6?action=share&source=collection_link&creator=10162430"
+	},
+	"item": [
+		{
+			"name": "User Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"mohib\",\n    \"password\":\"111222\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Sample employees",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"mohib\",\n    \"position\":\"111222\",\n    \"supervisorId\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/employees",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employees subordinates with Unauthenticated User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"mohib\",\n    \"position\":\"111222\",\n    \"supervisorId\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/employees/1/subordinates",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"employees",
+						"1",
+						"subordinates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employees subordinates with Authenticated User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc0NzUwNzgyOX0.QKByhtiPrqlZuQgT-Ax5A5-KFJrlQIlMRBsB_K2Yfjo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"mohib\",\n    \"position\":\"111222\",\n    \"supervisorId\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/protected/employees/1/subordinates",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"protected",
+						"employees",
+						"1",
+						"subordinates"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
